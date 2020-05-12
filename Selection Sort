@@ -1,0 +1,13 @@
+#Selection Sort
+arr=[8,4,3,7,6,1,2,5]
+n=len(arr)
+while(n!=1):
+    m=0
+    mi=0
+    for i in range(n):
+        if(arr[i]>m):
+            m=arr[i]
+            mi=i
+    arr[mi],arr[n-1]=arr[n-1],arr[mi]
+    n-=1
+print(arr) 
