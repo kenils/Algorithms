@@ -1,0 +1,28 @@
+def partition(arr,low,high):
+    i=low
+    j=high
+    pivot=arr[low]
+    while(i<j):
+        while(arr[i]<=pivot):
+            if(i==high):
+                break
+            i+=1
+        while(arr[j]>pivot):
+            if(j<=low):
+                break
+            j-=1
+        if(i<j):
+            arr[i],arr[j]=arr[j],arr[i]
+    arr[low],arr[j]=arr[j],arr[low]
+    return j
+def quicksort(arr,low,high):
+    if(low<high):
+        p=partition(arr,low,high)
+        quicksort(arr,low,p-1)
+        quicksort(arr,p+1,high)
+    else:
+        return
+    
+arr=[14,5,7,2,1,69,4]
+quicksort(arr,0,6)
+print(arr)
