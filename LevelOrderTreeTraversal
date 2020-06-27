@@ -1,0 +1,32 @@
+def BFS(root): 	
+    q=[]
+    if(root):
+        q.append(root)
+    while(len(q)!=0):
+    	root=q.pop(0)
+    	print(root.data,end="")
+    	if(root.left):
+    		q.append(root.left)
+    	if(root.right):
+    		q.append(root.right)
+    
+class Node(object):
+	"""docstring for ClassName"""
+	def __init__(self, key):
+		self.data = key
+		self.left=None
+		self.right=None
+		
+
+
+class Tree:
+	"""docstring for Tree"""
+	def __init__(self, key):
+		self.root = Node(key) 
+		self.root.left = Node(2) 
+		self.root.right = Node(3) 
+		self.root.left.left = Node(4) 
+		self.root.left.right = Node(5)
+t=Tree(1)
+root=t.root
+BFS(t.root)
