@@ -1,0 +1,39 @@
+def preorder(root):
+	if(root):
+		print(root.data)
+		preorder(root.left)
+		preorder(root.right)
+def inorder(root):
+	if(root):
+		inorder(root.left)
+		print(root.data)
+		inorder(root.right)
+def postorder(root):
+	if(root):
+		postorder(root.left)
+		postorder(root.right)
+		print(root.data)				
+
+
+class Node(object):
+	"""docstring for ClassName"""
+	def __init__(self, key):
+		self.data = key
+		self.left=None
+		self.right=None
+		
+
+
+class Tree:
+	"""docstring for Tree"""
+	def __init__(self, key):
+		self.root = Node(key) 
+		self.root.left = Node(2) 
+		self.root.right = Node(3) 
+		self.root.left.left = Node(4) 
+		self.root.left.right = Node(5)	
+
+t=Tree(1)
+preorder(t.root)
+
+		
