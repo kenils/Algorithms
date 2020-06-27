@@ -1,0 +1,28 @@
+'''
+The problem was to print the number of swaps required in an array of consecutive integers to sort them in ascending order.
+
+Approach:
+This approach makes use of graphs to calculate the swaps by (no. of nodes - 1) for each cycle in the graph. There can be multiple cycles in the given array. The final answer is the summation of swaps in each cycle.
+
+'''
+
+arr=[2,3,4,1,5]
+n = len(arr) 
+l=list(enumerate(arr))
+l.sort(key= lambda it:it[1])
+print(l)
+visited=[-1]*n
+ans=0
+for i in range(n):
+    if(l[i][0]==i):
+        visited[i]=1
+    cycle=0 
+    j=i
+    while(visited[j]!=1):
+        visited[j]=1
+        cycle=cycle+1
+        j=l[j][0]
+    if(cycle>0):
+        ans=ans+(cycle-1)
+print(ans)        
+        
