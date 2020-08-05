@@ -1,0 +1,17 @@
+'''
+The following file just focuses on the main logic behind reversing a linked list in O(n) Time Complexity.
+'''
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev,curr,following=None,head,head
+        while(curr!=None):
+            following=following.next
+            curr.next=prev
+            prev=curr
+            curr=following
+        return prev
